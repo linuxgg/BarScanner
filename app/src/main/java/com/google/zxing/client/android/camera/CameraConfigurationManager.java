@@ -58,7 +58,7 @@ final class CameraConfigurationManager {
     Camera.Parameters parameters = camera.getCamera().getParameters();
     WindowManager manager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
     Display display = manager.getDefaultDisplay();
-
+    Log.d("TOM2", "WindowManager:: " + display.getWidth() + "  " + display.getHeight());
     int displayRotation = display.getRotation();
     int cwRotationFromNaturalToDisplay;
     switch (displayRotation) {

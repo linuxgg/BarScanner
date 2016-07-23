@@ -16,24 +16,24 @@
 
 package com.google.zxing.client.android;
 
+import android.app.Activity;
 import android.content.ActivityNotFoundException;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
-import android.graphics.BitmapFactory;
-import android.provider.Browser;
-import com.google.zxing.BarcodeFormat;
-import com.google.zxing.DecodeHintType;
-import com.google.zxing.Result;
-import com.google.zxing.client.android.camera.CameraManager;
-
-import android.app.Activity;
-import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.provider.Browser;
 import android.util.Log;
+
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.DecodeHintType;
+import com.google.zxing.Result;
+import com.google.zxing.client.android.camera.CameraManager;
 
 import java.util.Collection;
 import java.util.Map;
@@ -93,7 +93,7 @@ public final class CaptureActivityHandler extends Handler {
             // Mutable copy:
             barcode = barcode.copy(Bitmap.Config.ARGB_8888, true);
           }
-          scaleFactor = bundle.getFloat(DecodeThread.BARCODE_SCALED_FACTOR);          
+          scaleFactor = bundle.getFloat(DecodeThread.BARCODE_SCALED_FACTOR);
         }
         activity.handleDecode((Result) message.obj, barcode, scaleFactor);
         break;

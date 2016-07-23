@@ -1,0 +1,6 @@
+1. <merge xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools">
+    这是干什么的？命名空间怎么用？
+
+2.merge 的好处
+3.  private BeepManager beepManager;
