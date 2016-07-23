@@ -495,17 +495,20 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
         if (points != null && points.length > 0) {
             Canvas canvas = new Canvas(barcode);
             Paint paint = new Paint();
-            paint.setColor(getResources().getColor(R.color.result_points));
+
             if (points.length == 2) {
+                paint.setColor(getResources().getColor(R.color.viewfinder_laser)); //||||这种中间的
                 paint.setStrokeWidth(4.0f);
                 drawLine(canvas, paint, points[0], points[1], scaleFactor);
             } else if (points.length == 4 &&
                     (rawResult.getBarcodeFormat() == BarcodeFormat.UPC_A ||
                             rawResult.getBarcodeFormat() == BarcodeFormat.EAN_13)) {
+                paint.setColor(getResources().getColor(R.color.pink)); //结果页面上，缩略图的红点
                 // Hacky special case -- draw two lines, for the barcode and metadata
                 drawLine(canvas, paint, points[0], points[1], scaleFactor);
                 drawLine(canvas, paint, points[2], points[3], scaleFactor);
             } else {
+                paint.setColor(getResources().getColor(R.color.green)); //QR 4个点
                 paint.setStrokeWidth(10.0f);
                 for (ResultPoint point : points) {
                     if (point != null) {

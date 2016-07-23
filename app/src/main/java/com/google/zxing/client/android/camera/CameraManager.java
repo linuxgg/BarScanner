@@ -324,12 +324,15 @@ public final class CameraManager {
      */
     public PlanarYUVLuminanceSource buildLuminanceSource(byte[] data, int width, int height) {
         Rect rect = getFramingRectInPreview();
+        //rect是中间的那个小的扫描区域，
         if (rect == null) {
             return null;
         }
+
+        Log.i(TAG, "buildLuminanceSource:: " + width + " * " + height + "     ==== rect::" + rect.width() + " * " + rect.height());
         // Go ahead and assume it's YUV rather than die.
         return new PlanarYUVLuminanceSource(data, width, height, rect.left, rect.top,
-                rect.width(), rect.height(), false);
+                rect.width(), rect.height(), false);  //只是返回了扫描区域中间的那个小区域的图片byte
     }
 
 }
