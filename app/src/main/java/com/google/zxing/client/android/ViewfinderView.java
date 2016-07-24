@@ -45,7 +45,7 @@ public final class ViewfinderView extends View {
     private static final long ANIMATION_DELAY = 80L;
     private static final int CURRENT_POINT_OPACITY = 0xA0;
     private static final int MAX_RESULT_POINTS = 20;
-    private static final int POINT_SIZE = 10;
+    private static final int POINT_SIZE = 8;
 
     private CameraManager cameraManager;
     private final Paint paint;
@@ -68,7 +68,7 @@ public final class ViewfinderView extends View {
         maskColor = resources.getColor(R.color.blue);
         resultColor = resources.getColor(R.color.pink);
         laserColor = resources.getColor(R.color.viewfinder_laser);
-        resultPointColor = resources.getColor(R.color.green);
+        resultPointColor = resources.getColor(R.color.blue2);
         scannerAlpha = 0;
         possibleResultPoints = new ArrayList<>(10);
         lastPossibleResultPoints = null;
@@ -81,6 +81,7 @@ public final class ViewfinderView extends View {
     @SuppressLint("DrawAllocation")
     @Override
     public void onDraw(Canvas canvas) {
+        Log.w("TOM3", "on draw");
         if (cameraManager == null) {
             return; // not ready yet, early draw before done configuring
         }
@@ -92,7 +93,7 @@ public final class ViewfinderView extends View {
         int width = canvas.getWidth();
         int height = canvas.getHeight();
 
-        Log.d("TOM", "canvs:: " + canvas.getWidth() + "  " + canvas.getHeight());
+//        Log.d("TOM", "canvs:: " + canvas.getWidth() + "  " + canvas.getHeight());
 
         // Draw the exterior (i.e. outside the framing rect) darkened
         paint.setColor(resultBitmap != null ? resultColor : maskColor);
@@ -105,6 +106,7 @@ public final class ViewfinderView extends View {
         if (resultBitmap != null) {
             // Draw the opaque result bitmap over the scanning rectangle
             paint.setAlpha(CURRENT_POINT_OPACITY);
+            paint.setColor(getResources().getColor(R.color.pink));
             canvas.drawBitmap(resultBitmap, null, frame, paint);
         } else {
 
@@ -117,8 +119,8 @@ public final class ViewfinderView extends View {
 
             float scaleX = frame.width() / (float) previewFrame.width();
             float scaleY = frame.height() / (float) previewFrame.height();
-            Log.d("TOM", "frame:: " + frame.width() + "  " + frame.height());
-            Log.d("TOM", "previewFrame:: " + previewFrame.width() + "  " + previewFrame.height());
+//            Log.d("TOM", "frame:: " + frame.width() + "  " + frame.height());
+//            Log.d("TOM", "previewFrame:: " + previewFrame.width() + "  " + previewFrame.height());
             List<ResultPoint> currentPossible = possibleResultPoints;
             List<ResultPoint> currentLast = lastPossibleResultPoints;
             int frameLeft = frame.left;
@@ -132,9 +134,10 @@ public final class ViewfinderView extends View {
                 paint.setColor(resultPointColor);
                 synchronized (currentPossible) {
                     for (ResultPoint point : currentPossible) {
-                        canvas.drawCircle(frameLeft + (int) (point.getX() * scaleX),
-                                frameTop + (int) (point.getY() * scaleY),
-                                POINT_SIZE, paint);
+//                        canvas.drawCircle(frameLeft + (int) (point.getX() * scaleX),
+//                                frameTop + (int) (point.getY() * scaleY),
+//                                POINT_SIZE, paint);
+                        canvas.drawRect(frameLeft+point.getX()* scaleX,frameTop + point.getY()* scaleX, frameLeft+point.getX()* scaleX+POINT_SIZE,frameTop + point.getY()* scaleX+POINT_SIZE,paint );
                     }
                 }
             }
@@ -144,9 +147,10 @@ public final class ViewfinderView extends View {
                 synchronized (currentLast) {
                     float radius = POINT_SIZE / 2.0f;
                     for (ResultPoint point : currentLast) {
-                        canvas.drawCircle(frameLeft + (int) (point.getX() * scaleX),
-                                frameTop + (int) (point.getY() * scaleY),
-                                radius, paint);
+//                        canvas.drawCircle(frameLeft + (int) (point.getX() * scaleX),
+//                                frameTop + (int) (point.getY() * scaleY),
+//                                radius, paint);
+                        canvas.drawRect(frameLeft+point.getX()* scaleX,frameTop + point.getY()* scaleX, frameLeft+point.getX()* scaleX+POINT_SIZE,frameTop + point.getY()* scaleX+POINT_SIZE,paint );
                     }
                 }
             }
@@ -158,6 +162,7 @@ public final class ViewfinderView extends View {
                     frame.top - POINT_SIZE,
                     frame.right + POINT_SIZE,
                     frame.bottom + POINT_SIZE);
+
         }
     }
 

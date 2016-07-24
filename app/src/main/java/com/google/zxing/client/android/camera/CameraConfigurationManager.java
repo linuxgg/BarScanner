@@ -43,6 +43,7 @@ final class CameraConfigurationManager {
     private int cwNeededRotation;
     private int cwRotationFromDisplayToCamera;
     private Point screenResolution;
+    //camera的预览支持的camerasize有很多中,所以,camera的resolution和屏幕的未必就一致
     private Point cameraResolution;
     private Point bestPreviewSize;
     private Point previewSizeOnScreen;

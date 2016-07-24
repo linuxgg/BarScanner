@@ -36,4 +36,5 @@
     <color name="blue">#6000ffff</color>
     <!-- 中间的扫描线的颜色-->
     <color name="viewfinder_laser">#ffcc0000</color> <!-- Android standard ICS color -->
+    <color name="blue2">#ff0000ff</color> <!-- Android standard ICS color -->
 </resources>

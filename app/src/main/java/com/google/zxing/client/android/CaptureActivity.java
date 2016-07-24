@@ -624,7 +624,7 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
     private void handleDecodeExternally(Result rawResult, ResultHandler resultHandler, Bitmap barcode) {
 
         if (barcode != null) {
-            viewfinderView.drawResultBitmap(barcode);
+            viewfinderView.drawResultBitmap(barcode); //这里应该就是画动态的扫描点了
         }
 
         long resultDurationMS;
