@@ -14,23 +14,23 @@
  limitations under the License.
  -->
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+       xmlns:tools="http://schemas.android.com/tools">
 
     <SurfaceView
         android:id="@+id/preview_view"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent" />
+        android:layout_height="fill_parent"/>
 
     <com.google.zxing.client.android.ViewfinderView
         android:id="@+id/viewfinder_view"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent" />
-
+        android:layout_height="fill_parent"/>
+    <!--android:background="@color/result_view"-->
     <LinearLayout
         android:id="@+id/result_view"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:background="@color/result_view"
+
         android:baselineAligned="false"
         android:orientation="vertical"
         android:visibility="gone">
@@ -58,7 +58,7 @@
                     android:maxHeight="160dip"
                     android:maxWidth="160dip"
                     android:scaleType="centerInside"
-                    tools:ignore="ContentDescription" />
+                    tools:ignore="ContentDescription"/>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -71,13 +71,13 @@
                         android:paddingRight="@dimen/half_padding"
                         android:text="@string/msg_default_format"
                         android:textColor="@color/result_minor_text"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"/>
 
                     <TextView
                         android:id="@+id/format_text_view"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/result_minor_text" />
+                        android:textColor="@color/result_minor_text"/>
 
                 </LinearLayout>
 
@@ -92,13 +92,13 @@
                         android:paddingRight="@dimen/half_padding"
                         android:text="@string/msg_default_type"
                         android:textColor="@color/result_minor_text"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"/>
 
                     <TextView
                         android:id="@+id/type_text_view"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/result_minor_text" />
+                        android:textColor="@color/result_minor_text"/>
 
                 </LinearLayout>
 
@@ -113,13 +113,13 @@
                         android:paddingRight="@dimen/half_padding"
                         android:text="@string/msg_default_time"
                         android:textColor="@color/result_minor_text"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"/>
 
                     <TextView
                         android:id="@+id/time_text_view"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/result_minor_text" />
+                        android:textColor="@color/result_minor_text"/>
 
                 </LinearLayout>
 
@@ -135,13 +135,13 @@
                         android:paddingRight="@dimen/half_padding"
                         android:text="@string/msg_default_meta"
                         android:textColor="@color/result_minor_text"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"/>
 
                     <TextView
                         android:id="@+id/meta_text_view"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/result_minor_text" />
+                        android:textColor="@color/result_minor_text"/>
 
                 </LinearLayout>
 
@@ -165,7 +165,7 @@
                         android:textColor="@color/result_text"
                         android:textColorLink="@color/result_text"
                         android:textIsSelectable="true"
-                        android:textSize="22sp" />
+                        android:textSize="22sp"/>
 
                     <TextView
                         android:id="@+id/contents_supplement_text_view"
@@ -175,7 +175,7 @@
                         android:paddingLeft="12dip"
                         android:textColor="@color/result_text"
                         android:textColorLink="@color/result_text"
-                        android:textIsSelectable="true" />
+                        android:textIsSelectable="true"/>
 
                 </LinearLayout>
 
@@ -192,19 +192,19 @@
 
             <Button
                 style="@style/ResultButton"
-                android:visibility="gone" />
+                android:visibility="gone"/>
 
             <Button
                 style="@style/ResultButton"
-                android:visibility="gone" />
+                android:visibility="gone"/>
 
             <Button
                 style="@style/ResultButton"
-                android:visibility="gone" />
+                android:visibility="gone"/>
 
             <Button
                 style="@style/ResultButton"
-                android:visibility="gone" />
+                android:visibility="gone"/>
 
         </LinearLayout>
 
@@ -217,7 +217,8 @@
         android:layout_marginTop="30dp"
         android:text="Preview Controller"
         android:textColor="@color/status_text"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:visibility="gone"/>
 
 
     <TextView
@@ -227,6 +228,6 @@
         android:layout_gravity="bottom|center_horizontal"
         android:background="@color/transparent"
         android:text="@string/msg_default_status"
-        android:textColor="@color/status_text" />
+        android:textColor="@color/status_text"/>
 
 </merge>

@@ -779,6 +779,9 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
                 }
             }
         });
+        findViewById(R.id.preview_controller).setVisibility(View.GONE);
+
+
         lastResult = null;
     }
 
