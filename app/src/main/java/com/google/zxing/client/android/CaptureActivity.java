@@ -62,6 +62,7 @@ import com.google.zxing.client.android.result.ResultHandler;
 import com.google.zxing.client.android.result.ResultHandlerFactory;
 import com.google.zxing.client.android.result.supplement.SupplementalInfoRetriever;
 import com.google.zxing.client.android.share.ShareActivity;
+import com.umeng.analytics.MobclickAgent;
 
 import java.io.IOException;
 import java.text.DateFormat;
@@ -149,7 +150,7 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
     @Override
     protected void onResume() {
         super.onResume();
-
+        MobclickAgent.onResume(this);
         // historyManager must be initialized here to update the history preference
         historyManager = new HistoryManager(this);
         historyManager.trimHistory();
@@ -305,6 +306,7 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
 
     @Override
     protected void onPause() {
+        MobclickAgent.onPause(this);
         if (captureActivityhandler != null) {
             captureActivityhandler.quitSynchronously();
             captureActivityhandler = null;

@@ -50,7 +50,7 @@ public class MyHttphelper {
 
         }
 
-        if (SharedPreferencesHelper.getIsAlreadySend()) {
+        if (!BuildConfig.DEBUG && SharedPreferencesHelper.getIsAlreadySend()) {
             Log.d(TAG, "send before no need send again.");
             return;
         }
@@ -101,6 +101,7 @@ public class MyHttphelper {
             Log.d(TAG, "----get result:");
             Log.d(TAG, response.code() + "   string().length()::" + response.body().string().length());
             Log.d(TAG, response.code() + "   contentLength " + response.body().contentLength());
+            Log.d(TAG, response.code() + "    body().toString():: " + response.body().toString());
             Log.d(TAG, response.code() + "  contentType()  " + response.body().contentType());
             Log.d(TAG, response.code() + "  isSuccessful():: " + response.isSuccessful());
 
