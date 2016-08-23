@@ -68,7 +68,7 @@ public class MyHttphelper {
 
         phoneDetail.setFlashmode(params.get("flash-mode-values"));
         phoneDetail.setZoomsuppported(params.get("zoom-supported").compareToIgnoreCase("true") == 0);
-        phoneDetail.setFocusmode(params.get("focus-mode"));
+        phoneDetail.setFocusmode(params.get("focus-mode-values"));
         phoneDetail.setPreviewsize(params.get("preview-size-values"));
         phoneDetail.setVideostabilization(params.get("video-stabilization-supported").compareToIgnoreCase("true") == 0);
         phoneDetail.setDetails(new Gson().toJson(params));
