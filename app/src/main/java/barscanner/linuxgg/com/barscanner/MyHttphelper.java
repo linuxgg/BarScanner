@@ -63,14 +63,24 @@ public class MyHttphelper {
         phoneDetail.setImei(tm.getDeviceId());
 
 
-        phoneDetail.setDetails(System.currentTimeMillis() + "");
-//        phoneDetail.setDetails(new Gson().toJson(params));
+//        phoneDetail.setDetails(System.currentTimeMillis() + "");
+
+
+        phoneDetail.setFlashmode(params.get("flash-mode-values"));
+        phoneDetail.setZoomsuppported(params.get("zoom-supported").compareToIgnoreCase("true") == 0);
+        phoneDetail.setFocusmode(params.get("focus-mode"));
+        phoneDetail.setPreviewsize(params.get("preview-size-values"));
+        phoneDetail.setVideostabilization(params.get("video-stabilization-supported").compareToIgnoreCase("true") == 0);
+        phoneDetail.setDetails(new Gson().toJson(params));
 
         OkHttpClient okHttpClient = new OkHttpClient();
         RequestBody body = RequestBody.create(MEDIATYPE_JSON, new Gson().toJson(phoneDetail));
         Log.d(TAG, "send JSON:" + new Gson().toJson(phoneDetail));
+
+
         Request request = new Request.Builder()
-                .url(HttpConstants.url + "/addPhones")
+                .header("Content-Type", "application/json")
+                .url(HttpConstants.url + "/phone/addPhones")
                 .post(body)
                 .build();
 //        Request request = new Request.Builder()

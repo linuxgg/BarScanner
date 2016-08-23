@@ -6,5 +6,6 @@ package barscanner.linuxgg.com.barscanner;
  * Desc :    <p>
  */
 public class HttpConstants {
-    public final static String url = "http://10.0.0.19:8080";
+//    public final static String url = "http://10.0.0.19:8080";
+    public final static String url = "http://www.qdtom.com";
 }
