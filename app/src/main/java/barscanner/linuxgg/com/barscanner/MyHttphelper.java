@@ -10,6 +10,7 @@ import android.util.Log;
 import com.google.gson.Gson;
 import com.google.zxing.client.android.BuildConfig;
 
+import barscanner.linuxgg.com.barscanner.utils.MySystemUtils;
 import barscanner.linuxgg.com.barscanner.utils.SharedPreferencesHelper;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
@@ -58,11 +59,12 @@ public class MyHttphelper {
 
         PhoneDetail phoneDetail = new PhoneDetail();
 
-        phoneDetail.setUuid(System.currentTimeMillis() + "");
+//        phoneDetail.setUuid(System.currentTimeMillis() + "");
+        phoneDetail.setUuid(MySystemUtils.getDeviceInfo(context));
         phoneDetail.setBrand(Build.BRAND);
         phoneDetail.setModel(Build.MODEL);
         phoneDetail.setOs(Build.FINGERPRINT);
-        phoneDetail.setOs(Build.VERSION.CODENAME + " " + Build.VERSION.RELEASE);
+//        phoneDetail.setOs(Build.VERSION.CODENAME + " " + Build.VERSION.RELEASE);
 
 
         TelephonyManager tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
@@ -75,7 +77,7 @@ public class MyHttphelper {
 
         phoneDetail.setFlashmode(params.get("flash-mode-values"));
         phoneDetail.setZoomsuppported(params.get("zoom-supported").compareToIgnoreCase("true") == 0);
-        phoneDetail.setFocusmode(params.get("focus-mode-values"));
+        phoneDetail.setFocusmode(params.get("focus-mode"));
         phoneDetail.setPreviewsize(params.get("preview-size-values"));
         phoneDetail.setVideostabilization(params.get("video-stabilization-supported").compareToIgnoreCase("true") == 0);
         phoneDetail.setDetails(new Gson().toJson(params));
@@ -99,9 +101,9 @@ public class MyHttphelper {
 
             Response response = okHttpClient.newCall(request).execute();
             Log.d(TAG, "----get result:");
-            Log.d(TAG, response.code() + "   string().length()::" + response.body().string().length());
-            Log.d(TAG, response.code() + "   contentLength " + response.body().contentLength());
-            Log.d(TAG, response.code() + "    body().toString():: " + response.body().toString());
+//            Log.d(TAG, response.code() + "   string().length()::" + response.body().string().length());
+//            Log.d(TAG, response.code() + "   contentLength " + response.body().contentLength());
+            Log.d(TAG, response.code() + "    body().toString():: " + response.body().string());
             Log.d(TAG, response.code() + "  contentType()  " + response.body().contentType());
             Log.d(TAG, response.code() + "  isSuccessful():: " + response.isSuccessful());
 

@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "622471104497",
+    "firebase_url": "https://tomqr-4d94a.firebaseio.com",
+    "project_id": "tomqr-4d94a",
+    "storage_bucket": "tomqr-4d94a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:622471104497:android:59146ddc09f42d6d",
+        "android_client_info": {
+          "package_name": "barscanner.qdtom.com.barscanner"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "622471104497-821gk636qn2um9pi43s39npt6n878ri0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWWxr0yvFb2-YfBVdwPtWAvB-ZlfDmrWQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
