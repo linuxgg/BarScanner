@@ -32,4 +32,5 @@ dependencies {
     compile 'com.google.firebase:firebase-core:9.4.0'
     compile 'com.google.firebase:firebase-core:9.4.0'
     compile files('libs/mid-sdk-2.3.jar')
+    compile files('libs/mta-android-stat-sdk-2.2.0_20160504.jar')
 }
