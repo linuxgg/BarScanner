@@ -83,7 +83,7 @@ final class CameraConfigurationManager {
                     throw new IllegalArgumentException("Bad rotation: " + displayRotation);
                 }
         }
-        Log.i(TAG, "Display at: " + cwRotationFromNaturalToDisplay);
+//        Log.i(TAG, "Display at: " + cwRotationFromNaturalToDisplay);
 
         int cwRotationFromNaturalToCamera = camera.getOrientation();
         Log.i(TAG, "Camera at: " + cwRotationFromNaturalToCamera);
@@ -91,7 +91,7 @@ final class CameraConfigurationManager {
         // Still not 100% sure about this. But acts like we need to flip this:
         if (camera.getFacing() == CameraFacing.FRONT) {
             cwRotationFromNaturalToCamera = (360 - cwRotationFromNaturalToCamera) % 360;
-            Log.i(TAG, "Front camera overriden to: " + cwRotationFromNaturalToCamera);
+//            Log.i(TAG, "Front camera overriden to: " + cwRotationFromNaturalToCamera);
         }
 
     /*
@@ -110,22 +110,22 @@ final class CameraConfigurationManager {
 
         cwRotationFromDisplayToCamera =
                 (360 + cwRotationFromNaturalToCamera - cwRotationFromNaturalToDisplay) % 360;
-        Log.i(TAG, "Final display orientation: " + cwRotationFromDisplayToCamera);
+//        Log.i(TAG, "Final display orientation: " + cwRotationFromDisplayToCamera);
         if (camera.getFacing() == CameraFacing.FRONT) {
-            Log.i(TAG, "Compensating rotation for front camera");
+//            Log.i(TAG, "Compensating rotation for front camera");
             cwNeededRotation = (360 - cwRotationFromDisplayToCamera) % 360;
         } else {
             cwNeededRotation = cwRotationFromDisplayToCamera;
         }
-        Log.i(TAG, "Clockwise rotation from display to camera: " + cwNeededRotation);
+//        Log.i(TAG, "Clockwise rotation from display to camera: " + cwNeededRotation);
 
         Point theScreenResolution = new Point();
         display.getSize(theScreenResolution);
         screenResolution = theScreenResolution;
         Log.i(TAG, "Screen resolution in current orientation: " + screenResolution);
-        cameraResolution = CameraConfigurationUtils.findBestPreviewSizeValue(parameters, screenResolution);
+//        cameraResolution = CameraConfigurationUtils.findBestPreviewSizeValue(parameters, screenResolution);
         Log.i(TAG, "Camera resolution: " + cameraResolution);
-        Log.i(TAG, "Camera collectStats: " + CameraConfigurationUtils.collectStats(camera.getCamera().getParameters()));
+//        Log.i(TAG, "Camera collectStats: " + CameraConfigurationUtils.collectStats(camera.getCamera().getParameters()));
         bestPreviewSize = CameraConfigurationUtils.findBestPreviewSizeValue(parameters, screenResolution);
         Log.i(TAG, "Best available preview size: " + bestPreviewSize);
 
