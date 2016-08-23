@@ -765,21 +765,21 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
         statusView.setVisibility(View.VISIBLE);
         viewfinderView.setVisibility(View.VISIBLE);
 
-
-        //TODO,faild and will fix later
-        findViewById(R.id.preview_controller).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (cameraManager.previewing) {
-                    cameraManager.stopPreview();
-                } else {
-                    cameraManager.startPreview();
-                    restartPreviewAfterDelay(0L);
-
-                }
-            }
-        });
-        findViewById(R.id.preview_controller).setVisibility(View.GONE);
+//
+//        //TODO,faild and will fix later
+//        findViewById(R.id.preview_controller).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (cameraManager.previewing) {
+//                    cameraManager.stopPreview();
+//                } else {
+//                    cameraManager.startPreview();
+//                    restartPreviewAfterDelay(0L);
+//
+//                }
+//            }
+//        });
+//        findViewById(R.id.preview_controller).setVisibility(View.GONE);
 
 
         lastResult = null;

@@ -210,16 +210,6 @@
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/preview_controller"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="Preview Controller"
-        android:textColor="@color/status_text"
-        android:textSize="20dp"
-        android:visibility="gone"/>
-
 
     <TextView
         android:id="@+id/status_view"
