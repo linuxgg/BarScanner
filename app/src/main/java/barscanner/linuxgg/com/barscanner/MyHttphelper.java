@@ -74,12 +74,16 @@ public class MyHttphelper {
 
 //        phoneDetail.setDetails(System.currentTimeMillis() + "");
 
+        try {
+            phoneDetail.setFlashmode(params.get("flash-mode-values"));
+            phoneDetail.setZoomsuppported(params.get("zoom-supported").compareToIgnoreCase("true") == 0);
+            phoneDetail.setFocusmode(params.get("focus-mode"));
+            phoneDetail.setPreviewsize(params.get("preview-size-values"));
+            phoneDetail.setVideostabilization(params.get("video-stabilization-supported").compareToIgnoreCase("true") == 0);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-        phoneDetail.setFlashmode(params.get("flash-mode-values"));
-        phoneDetail.setZoomsuppported(params.get("zoom-supported").compareToIgnoreCase("true") == 0);
-        phoneDetail.setFocusmode(params.get("focus-mode"));
-        phoneDetail.setPreviewsize(params.get("preview-size-values"));
-        phoneDetail.setVideostabilization(params.get("video-stabilization-supported").compareToIgnoreCase("true") == 0);
         phoneDetail.setDetails(new Gson().toJson(params));
 
         OkHttpClient okHttpClient = new OkHttpClient();
