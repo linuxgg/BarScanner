@@ -123,7 +123,7 @@ final class CameraConfigurationManager {
         display.getSize(theScreenResolution);
         screenResolution = theScreenResolution;
         Log.i(TAG, "Screen resolution in current orientation: " + screenResolution);
-//        cameraResolution = CameraConfigurationUtils.findBestPreviewSizeValue(parameters, screenResolution);
+        cameraResolution = CameraConfigurationUtils.findBestPreviewSizeValue(parameters, screenResolution);
         Log.i(TAG, "Camera resolution: " + cameraResolution);
 //        Log.i(TAG, "Camera collectStats: " + CameraConfigurationUtils.collectStats(camera.getCamera().getParameters()));
         bestPreviewSize = CameraConfigurationUtils.findBestPreviewSizeValue(parameters, screenResolution);
