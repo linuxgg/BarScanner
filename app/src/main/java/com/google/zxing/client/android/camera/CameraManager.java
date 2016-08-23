@@ -338,7 +338,7 @@ public final class CameraManager {
             return null;
         }
 
-        Log.i(TAG, "buildLuminanceSource:: " + width + " * " + height + "     ==== rect::" + rect.width() + " * " + rect.height());
+//        Log.i(TAG, "buildLuminanceSource:: " + width + " * " + height + "     ==== rect::" + rect.width() + " * " + rect.height());
         // Go ahead and assume it's YUV rather than die.
         return new PlanarYUVLuminanceSource(data, width, height, rect.left, rect.top,
                 rect.width(), rect.height(), false);  //只是返回了扫描区域中间的那个小区域的图片byte

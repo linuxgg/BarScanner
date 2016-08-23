@@ -24,7 +24,6 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 
 import com.google.zxing.ResultPoint;
@@ -87,7 +86,7 @@ public final class ViewfinderView extends View {
     @SuppressLint("DrawAllocation")
     @Override
     public void onDraw(Canvas canvas) {
-        Log.w("TOM3", "on draw");
+//        Log.w("TOM3", "on draw");
         if (cameraManager == null) {
             return; // not ready yet, early draw before done configuring
         }

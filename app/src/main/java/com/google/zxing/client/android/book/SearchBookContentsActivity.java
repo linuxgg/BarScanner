@@ -166,7 +166,7 @@ public final class SearchBookContentsActivity extends Activity {
     @Override
     protected JSONObject doInBackground(String... args) {
       try {
-        // These return a JSON result which describes if and where the query was found. This API may
+        // These return a MEDIATYPE_JSON result which describes if and where the query was found. This API may
         // break or disappear at any time in the future. Since this is an API call rather than a
         // website, we don't use LocaleManager to change the TLD.
         String theQuery = args[0];
@@ -225,7 +225,7 @@ public final class SearchBookContentsActivity extends Activity {
           resultListView.setAdapter(null);
         }
       } catch (JSONException e) {
-        Log.w(TAG, "Bad JSON from book search", e);
+        Log.w(TAG, "Bad MEDIATYPE_JSON from book search", e);
         resultListView.setAdapter(null);
         headerView.setText(R.string.msg_sbc_failed);
       }

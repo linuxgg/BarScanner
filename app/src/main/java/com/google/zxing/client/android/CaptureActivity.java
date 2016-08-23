@@ -161,7 +161,6 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
         cameraManager = new CameraManager(getApplication());
 
 
-
         viewfinderView = (ViewfinderView) findViewById(R.id.viewfinder_view);
         viewfinderView.setCameraManager(cameraManager);
 
@@ -737,8 +736,8 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
             }
             decodeOrStoreSavedBitmap(null, null);
 
-            if(cameraManager.getCamera().getCamera()!=null){
-                MyHttphelper.sendDetail(cameraManager.getCamera().getCamera().getParameters());
+            if (cameraManager.getCamera().getCamera() != null) {
+                MyHttphelper.sendDetail(CaptureActivity.this, cameraManager.getCamera().getCamera().getParameters());
             }
 
         } catch (IOException ioe) {

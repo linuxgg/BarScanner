@@ -49,7 +49,7 @@ public final class HttpHelper {
   public enum ContentType {
     /** HTML-like content type, including HTML, XHTML, etc. */
     HTML,
-    /** JSON content */
+    /** MEDIATYPE_JSON content */
     JSON,
     /** XML */
     XML,
