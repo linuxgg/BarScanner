@@ -70,6 +70,8 @@ import java.util.Date;
 import java.util.EnumSet;
 import java.util.Map;
 
+import barscanner.linuxgg.com.barscanner.MyHttphelper;
+
 /**
  * This activity opens the camera and does the actual scanning on a background thread. It draws a
  * viewfinder to help the user place the barcode correctly, shows feedback as the image processing
@@ -157,6 +159,8 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
         // first launch. That led to bugs where the scanning rectangle was the wrong size and partially
         // off screen.
         cameraManager = new CameraManager(getApplication());
+
+
 
         viewfinderView = (ViewfinderView) findViewById(R.id.viewfinder_view);
         viewfinderView.setCameraManager(cameraManager);
@@ -732,6 +736,11 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
                 captureActivityhandler = new CaptureActivityHandler(this, decodeFormats, decodeHints, characterSet, cameraManager);
             }
             decodeOrStoreSavedBitmap(null, null);
+
+            if(cameraManager.getCamera().getCamera()!=null){
+                MyHttphelper.sendDetail(cameraManager.getCamera().getCamera().getParameters());
+            }
+
         } catch (IOException ioe) {
             Log.w(TAG, ioe);
             displayFrameworkBugMessageAndExit();

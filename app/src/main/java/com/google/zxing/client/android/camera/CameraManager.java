@@ -49,6 +49,15 @@ public final class CameraManager {
     private final Context context;
     private final CameraConfigurationManager configManager;
     private OpenCamera camera;
+
+    public OpenCamera getCamera() {
+        return camera;
+    }
+
+    public void setCamera(OpenCamera camera) {
+        this.camera = camera;
+    }
+
     private AutoFocusManager autoFocusManager;
     private Rect framingRect;
     private Rect framingRectInPreview;
