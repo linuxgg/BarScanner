@@ -10,6 +10,7 @@ import android.util.Log;
 import com.google.gson.Gson;
 import com.google.zxing.client.android.BuildConfig;
 
+import barscanner.linuxgg.com.barscanner.utils.SharedPreferencesHelper;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -48,6 +49,12 @@ public class MyHttphelper {
             Log.d(TAG, "start request");
 
         }
+
+        if (SharedPreferencesHelper.getIsAlreadySend()) {
+            Log.d(TAG, "send before no need send again.");
+            return;
+        }
+
 
         PhoneDetail phoneDetail = new PhoneDetail();
 
@@ -97,6 +104,8 @@ public class MyHttphelper {
             Log.d(TAG, response.code() + "  contentType()  " + response.body().contentType());
             Log.d(TAG, response.code() + "  isSuccessful():: " + response.isSuccessful());
 
+
+            SharedPreferencesHelper.setIsAlreadySend(response.isSuccessful());
 
         } catch (Exception e) {
             e.printStackTrace();
