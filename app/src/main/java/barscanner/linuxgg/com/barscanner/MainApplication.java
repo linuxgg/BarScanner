@@ -2,8 +2,10 @@ package barscanner.linuxgg.com.barscanner;
 
 import android.app.Application;
 import android.content.Context;
+import android.util.Log;
 
-import com.google.firebase.analytics.FirebaseAnalytics;
+import com.google.firebase.crash.FirebaseCrash;
+import com.google.zxing.client.android.BuildConfig;
 import com.umeng.analytics.MobclickAgent;
 
 /**
@@ -26,5 +28,15 @@ public class MainApplication extends Application {
 
         MobclickAgent.setScenarioType(getApplicationContext(), MobclickAgent.EScenarioType.E_UM_NORMAL);
 
+        try {
+            if (BuildConfig.DEBUG) {
+                Log.d(TAG, "FirebaseCrash.isSingletonInitialized():" + FirebaseCrash.isSingletonInitialized());
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+
+        }
     }
 }
