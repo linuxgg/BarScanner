@@ -234,12 +234,14 @@ public final class CameraManager {
                 return null;
             }
 
-            int width = findDesiredDimensionInRange(screenResolution.x, MIN_FRAME_WIDTH, MAX_FRAME_WIDTH);
-            int height = findDesiredDimensionInRange(screenResolution.y, MIN_FRAME_HEIGHT, MAX_FRAME_HEIGHT);
+//            int width = findDesiredDimensionInRange(screenResolution.x, MIN_FRAME_WIDTH, MAX_FRAME_WIDTH);
+//            int height = findDesiredDimensionInRange(screenResolution.y, MIN_FRAME_HEIGHT, MAX_FRAME_HEIGHT);
+
+            int width = 300;
 
             int leftOffset = (screenResolution.x - width) / 2;
-            int topOffset = (screenResolution.y - height) / 2;
-            framingRect = new Rect(leftOffset, topOffset, leftOffset + width, topOffset + height);
+            int topOffset = (screenResolution.y - width) / 2;
+            framingRect = new Rect(leftOffset, topOffset, leftOffset + width, topOffset + width);
             Log.d(TAG, "Calculated framing rect: " + framingRect);
         }
         return framingRect;
@@ -275,11 +277,13 @@ public final class CameraManager {
                 // Called early, before init even finished
                 return null;
             }
+            //original
 //            rect.left = rect.left * cameraResolution.x / screenResolution.x;
 //            rect.right = rect.right * cameraResolution.x / screenResolution.x;
 //            rect.top = rect.top * cameraResolution.y / screenResolution.y;
 //            rect.bottom = rect.bottom * cameraResolution.y / screenResolution.y;
 
+            //rect working
             rect.left = rect.left * cameraResolution.y / screenResolution.x;
             rect.right = rect.right * cameraResolution.y / screenResolution.x;
             rect.top = rect.top * cameraResolution.x / screenResolution.y;
