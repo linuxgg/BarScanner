@@ -66,7 +66,7 @@
         <activity
             android:name=".CaptureActivity"
             android:clearTaskOnLaunch="true"
-            android:screenOrientation="sensorLandscape"
+            android:screenOrientation="portrait"
             android:stateNotNeeded="true"
             android:theme="@style/CaptureTheme"
             android:windowSoftInputMode="stateAlwaysHidden">
@@ -198,8 +198,12 @@
             android:value="Umeng">
         </meta-data>
 
-        <meta-data android:name="TA_APPKEY" android:value="A4PNW68QSA1S" />
-        <meta-data android:name="InstallChannel" android:value="Umeng" />
+        <meta-data
+            android:name="TA_APPKEY"
+            android:value="A4PNW68QSA1S"/>
+        <meta-data
+            android:name="InstallChannel"
+            android:value="Umeng"/>
 
     </application>
 
